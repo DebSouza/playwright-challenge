@@ -3,19 +3,26 @@ class Utils {
     this.page = page;
 
     this.addToCartButton = page.locator("#add_to_cart");
+    this.cartQuantitySelector = ".shopping_cart .ajax_cart_quantity";
     this.colorPicker = page.locator("#color_to_pick_list");
+    this.closeLayerCart = page.locator("[title='Close window']");
     this.listView = page.locator(".icon-th-large");
     this.moreButton = page.locator("div.product-container a.button");
     this.pageHeading = page.locator(".page-heading");
     this.productAddedMessage = page.locator(".layer_cart_product h2");
     this.productName = page.locator(".product-name");
+    this.removeItemSelector = ".ajax_cart_block_remove_link";
     this.searchBar = page.locator(".search_query");
     this.searchButton = page.locator("[name=submit_search]");
     this.signOutButton = page.locator(".logout");
   }
 
-  async addItemToCart() {
+  async addItemToCart(productName, color) {
+    await this.searchProduct(productName);
+    await this.clickMoreButton();
+    await this.selectColor(color);
     await this.addToCartButton.click();
+    await this.closeLayerCart.click();
   }
 
   async clickMoreButton() {
@@ -47,6 +54,13 @@ class Utils {
       lastName,
       password,
     };
+  }
+
+  async getCartQuantity() {
+    const quantityText = await this.page
+      .locator(this.cartQuantitySelector)
+      .textContent();
+    return quantityText.trim();
   }
 
   async searchProduct(productName) {

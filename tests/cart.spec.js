@@ -18,9 +18,30 @@ test("Add item to cart", async ({ page }) => {
 
   await utils.selectColor("White");
 
-  await utils.addItemToCart();
+  await utils.addToCartButton.click();
 
   await expect(utils.productAddedMessage).toContainText(
     "Product successfully added to your shopping cart",
   );
+});
+
+test("Remove item to cart", async ({ page }) => {
+  const cartQuantityLocator = page.locator(utils.cartQuantitySelector);
+  const removeItemLocator = page.locator(utils.removeItemSelector);
+
+  await utils.addItemToCart("Blouse", "White");
+
+  await page.waitForSelector(utils.cartQuantitySelector);
+
+  let quantityAfterAdd = await utils.getCartQuantity();
+
+  await cartQuantityLocator.hover();
+
+  await removeItemLocator.click();
+
+  await page.waitForTimeout(5000);
+
+  let finalQuantity = await utils.getCartQuantity();
+
+  expect(parseInt(finalQuantity)).toBe(parseInt(quantityAfterAdd) - 1);
 });
