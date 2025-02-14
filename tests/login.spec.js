@@ -68,3 +68,17 @@ test("Login error without password", async ({ page }) => {
 
   await expect(loginPage.errorMessage).toContainText("Password is required.");
 });
+
+test("Login successful", async ({ page }) => {
+  const userData = await utils.userData();
+
+  await loginPage.signInEmailField.fill(userData.email);
+
+  await loginPage.signInPasswdField.fill(userData.password);
+
+  await loginPage.signInButton.click();
+
+  await expect(utils.pageHeading).toBeVisible();
+
+  await expect(utils.pageHeading).toContainText("My account");
+});
