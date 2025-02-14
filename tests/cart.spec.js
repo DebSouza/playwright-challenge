@@ -18,7 +18,7 @@ test("Add item to cart", async ({ page }) => {
 
   await utils.selectColor("White");
 
-  await utils.addItemToCart();
+  await utils.addToCartButton.click();
 
   await expect(utils.productAddedMessage).toContainText(
     "Product successfully added to your shopping cart",
