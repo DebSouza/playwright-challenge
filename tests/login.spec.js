@@ -70,11 +70,11 @@ test("Login error without password", async ({ page }) => {
 });
 
 test("Login successful", async ({ page }) => {
-  const userData = await utils.userData();
+  const testerUserData = await utils.testerUserData();
 
-  await loginPage.signInEmailField.fill(userData.email);
+  await loginPage.signInEmailField.fill(testerUserData.email);
 
-  await loginPage.signInPasswdField.fill(userData.password);
+  await loginPage.signInPasswdField.fill(testerUserData.password);
 
   await loginPage.signInButton.click();
 

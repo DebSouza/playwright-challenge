@@ -9,7 +9,7 @@ class Utils {
     await this.signOutButton.click();
   }
 
-  async userData() {
+  async testerUserData() {
     const email = "atproject@test.com";
     const password = "a1b2c3";
     const userFirstName = "AT";
