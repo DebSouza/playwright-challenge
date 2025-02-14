@@ -39,7 +39,7 @@ test("Remove item to cart", async ({ page }) => {
 
   await removeItemLocator.click();
 
-  await page.waitForTimeout(1500);
+  await page.waitForTimeout(5000);
 
   let finalQuantity = await utils.getCartQuantity();
 
