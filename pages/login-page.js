@@ -1,21 +1,21 @@
-import { Utils } from './utils';
-import { AccountCreationPage } from './account-creation-page';
+import { Utils } from "./utils";
+import { AccountCreationPage } from "./account-creation-page";
 
 class LoginPage {
   constructor(page) {
     this.page = page;
     this.utils = new Utils(page);
     this.accountCreationPage = new AccountCreationPage(page);
-    this.createAccountButton = page.locator('#SubmitCreate');
-    this.createAccountEmailField = page.locator('#email_create');
-    this.signInEmailField = page.locator('#email');
-    this.signInPasswdField = page.locator('#passwd');
-    this.signInButton = page.locator('#SubmitLogin');
-    this.errorMessage = page.locator('.alert-danger li');
+    this.createAccountButton = page.locator("#SubmitCreate");
+    this.createAccountEmailField = page.locator("#email_create");
+    this.signInEmailField = page.locator("#email");
+    this.signInPasswdField = page.locator("#passwd");
+    this.signInButton = page.locator("#SubmitLogin");
+    this.errorMessage = page.locator(".alert-danger li");
   }
 
   async navigateLoginPage() {
-    await this.page.goto('/?controller=authentication&back=my-account');
+    await this.page.goto("/?controller=authentication&back=my-account");
   }
 
   async createAnAccount() {
