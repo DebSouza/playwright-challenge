@@ -15,6 +15,7 @@ class Utils {
     this.searchBar = page.locator(".search_query");
     this.searchButton = page.locator("[name=submit_search]");
     this.signOutButton = page.locator(".logout");
+    this.proceedToCheckoutButton = page.locator("[title='Proceed to checkout']");
   }
 
   async addItemToCart(productName, color) {
