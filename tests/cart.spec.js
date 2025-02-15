@@ -5,10 +5,12 @@ import { CartSummaryPage } from "../pages/cart-summary-page";
 import { AddressPage } from "../pages/address-page";
 import { ShippingPage } from "../pages/shipping-page";
 import { PaymentPage } from "../pages/payment-page";
+import { ProductPage } from "../pages/product-page";
 
-let loginPage, utils, cartSummaryPage, addressPage, shippingPage, paymentPage;
+let loginPage, utils, cartSummaryPage, addressPage, shippingPage, paymentPage, productPage;
 
 beforeEach(async ({ page }) => {
+  productPage = new ProductPage(page);
   paymentPage = new PaymentPage(page);
   shippingPage = new ShippingPage(page);
   addressPage = new AddressPage(page);
@@ -22,11 +24,11 @@ beforeEach(async ({ page }) => {
 test("Add item to cart", async ({ page }) => {
   await utils.searchProduct("Blouse");
 
-  await utils.clickMoreButton();
+  await productPage.clickMoreButton();
 
-  await utils.selectColor("White");
+  await productPage.selectColor("White");
 
-  await utils.addToCartButton.click();
+  await productPage.addToCartButton.click();
 
   await expect(utils.productAddedMessage).toContainText(
     "Product successfully added to your shopping cart",
@@ -37,7 +39,7 @@ test("Remove item to cart", async ({ page }) => {
   const cartQuantityLocator = page.locator(utils.cartQuantitySelector);
   const removeItemLocator = page.locator(utils.removeItemSelector);
 
-  await utils.addItemToCart("Blouse", "White");
+  await productPage.addItemToCart("Blouse", "White");
 
   await page.waitForSelector(utils.cartQuantitySelector);
 
@@ -57,11 +59,11 @@ test("Remove item to cart", async ({ page }) => {
 test("Checkout", async ({ page }) => {
   await utils.searchProduct("Blouse");
 
-  await utils.clickMoreButton();
+  await productPage.clickMoreButton();
 
-  await utils.selectColor("White");
+  await productPage.selectColor("White");
 
-  await utils.addToCartButton.click();
+  await productPage.addToCartButton.click();
 
   await expect(utils.productAddedMessage).toContainText(
     "Product successfully added to your shopping cart",
