@@ -1,20 +1,13 @@
 class Utils {
   constructor(page) {
     this.page = page;
-
-     //productPage
     this.cartQuantitySelector = ".shopping_cart .ajax_cart_quantity";
     this.pageHeading = page.locator(".page-heading");
-    this.productAddedMessage = page.locator(".layer_cart_product h2");
-    this.productName = page.locator(".product-name");
     this.removeItemSelector = ".ajax_cart_block_remove_link";
     this.searchBar = page.locator(".search_query");
     this.searchButton = page.locator("[name=submit_search]");
     this.signOutButton = page.locator(".logout");
-    this.proceedToCheckoutButton = page.locator("[title='Proceed to checkout']");
   }
-
-
 
   generateRandomString(length) {
     let result = "";

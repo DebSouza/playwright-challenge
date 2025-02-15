@@ -8,14 +8,16 @@ class ProductPage{
         this.closeLayerCart = page.locator("[title='Close window']");
         this.listView = page.locator(".icon-th-large");
         this.moreButton = page.locator("div.product-container a.button");
+        this.productAddedMessage = page.locator(".layer_cart_product h2");
+        this.proceedToCheckoutButton = page.locator("[title='Proceed to checkout']");
     }
 
     async addItemToCart(productName, color) {
-        await this.utils.searchProduct(productName);  //utilsPage
-        await this.clickMoreButton();           //productPage  migrado
-        await this.selectColor(color);          //productPage   migrado
-        await this.addToCartButton.click();     //productPage   migrado
-        await this.closeLayerCart.click();      //productPage   migrado
+        await this.utils.searchProduct(productName);
+        await this.clickMoreButton();
+        await this.selectColor(color);
+        await this.addToCartButton.click();
+        await this.closeLayerCart.click()
       }
     
     async clickMoreButton() {

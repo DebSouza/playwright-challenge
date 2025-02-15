@@ -30,7 +30,7 @@ test("Add item to cart", async ({ page }) => {
 
   await productPage.addToCartButton.click();
 
-  await expect(utils.productAddedMessage).toContainText(
+  await expect(productPage.productAddedMessage).toContainText(
     "Product successfully added to your shopping cart",
   );
 });
@@ -65,11 +65,11 @@ test("Checkout", async ({ page }) => {
 
   await productPage.addToCartButton.click();
 
-  await expect(utils.productAddedMessage).toContainText(
+  await expect(productPage.productAddedMessage).toContainText(
     "Product successfully added to your shopping cart",
   );
 
-  await utils.proceedToCheckoutButton.click();
+  await productPage.proceedToCheckoutButton.click();
 
   await cartSummaryPage.proceedToCheckoutButton.click();
 
