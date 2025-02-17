@@ -7,6 +7,7 @@ class Utils {
     this.searchBar = page.locator(".search_query");
     this.searchButton = page.locator("[name=submit_search]");
     this.signOutButton = page.locator(".logout");
+    this.topMenu = page.locator("#block_top_menu");
   }
 
   generateRandomString(length) {
@@ -46,6 +47,11 @@ class Utils {
     await this.searchBar.click();
     await this.searchBar.fill(productName);
     await this.searchButton.click();
+  }
+
+  async selectTopMenu(title) {
+    const menuItem = this.topMenu.locator(`a[title="${title}"]`);
+    await menuItem.click();
   }
 
   async signOut() {
