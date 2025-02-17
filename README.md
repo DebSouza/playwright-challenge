@@ -20,7 +20,7 @@ Before you begin, make sure you have the following prerequisites installed on yo
 
 3. **Install project dependencies:**
     npm install 
-    # or
+     or
     yarn install
 This command will install Playwright and other dependencies listed in the package.json file.
 
