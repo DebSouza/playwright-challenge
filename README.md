@@ -16,12 +16,17 @@ Before you begin, make sure you have the following prerequisites installed on yo
    git clone [git@github.com:DebSouza/playwright-challenge.git](https://github.com/DebSouza/playwright-challenge)
 
 2. **Navigate to the project directory:**
-    cd [directory name]
+   
+    `cd [directory name]`
 
 3. **Install project dependencies:**
-    npm install 
+
+    `npm install `
+   
      or
-    yarn install
+
+    `yarn install`
+
 This command will install Playwright and other dependencies listed in the package.json file.
 
 
@@ -32,20 +37,26 @@ The tests are located in the tests directory and are written in JavaScript. To r
 ### Windows
 1. Open the terminal in the project root.
 2. Execute the following command:
-     npx playwright test
+
+     `npx playwright test`
+   
 This command will run all tests in the tests directory using the Chromium browser.
 
 ### Linux
 1. Open the terminal in the project root.
 2. Execute the following command:
-    npx playwright test
+   
+    `npx playwright test`
+   
 This command will run all tests in the tests directory using the Chromium browser.
 
 
 ### macOS
 1. Open the terminal in the project root.
 2. Execute the following command:
-    npx playwright test
+   
+   `npx playwright test`
+   
 This command will run all tests in the tests directory using the Chromium browser.
 
 
@@ -56,30 +67,37 @@ You can customize the test execution with the following options:
 You can customize the test execution with the following options:
 
 - Run tests on a specific browser:
-    npx playwright test --browser chromium
-    npx playwright test --browser firefox
-    npx playwright test --browser webkit
+  
+    `npx playwright test --browser chromium`
+  
+    `npx playwright test --browser firefox`
+
+    `npx playwright test --browser webkit`
 
 - Run tests in headed mode (with a graphical interface):
-    npx playwright test --headed
+
+   `npx playwright test --headed`
 
 - Run tests in debug mode:
-    npx playwright test --debug
+
+   `npx playwright test --debug`
 
 - Run a specific test:
-    npx playwright test tests/test-name.spec.js
+
+   `npx playwright test tests/test-name.spec.js`
 
 - Generate an HTML report:
-    npx playwright test --reporter html
+
+   `npx playwright test --reporter html`
 
 To open the report, run the command npx playwright show-report.
 
 
 ## Project Structure
-- package.json: Project configuration file, containing dependencies and scripts.
-- playwright.config.js: Playwright configuration file, where you can define options such as the default browser, timeout, etc.
-- tests: Directory containing the test files.
-- pages: Directory containing classes and selectors that represent the application pages.
+- `package.json`: Project configuration file, containing dependencies and scripts.
+- `playwright.config.js`: Playwright configuration file, where you can define options such as the default browser, timeout, etc.
+- `tests`: Directory containing the test files.
+- `pages`: Directory containing classes and selectors that represent the application pages.
 
 ## Writing tests
 The tests are written in JavaScript and use the Playwright syntax. For more information on how to write tests with Playwright, see the official documentation: https://playwright.dev/
