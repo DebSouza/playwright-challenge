@@ -10,6 +10,7 @@ class ProductPage{
         this.moreButton = page.locator("div.product-container a.button");
         this.productAddedMessage = page.locator(".layer_cart_product h2");
         this.proceedToCheckoutButton = page.locator("[title='Proceed to checkout']");
+        this.sortDropdown = page.locator("#selectProductSort");
     }
 
     async addItemToCart(productName, color) {
@@ -19,6 +20,21 @@ class ProductPage{
         await this.addToCartButton.click();
         await this.closeLayerCart.click()
       }
+    
+    async checkProductList(page) {
+        const productList = [];
+      
+        for (let index = 1; index <= 7; index++) {
+          const productSelector = `ul.product_list > li:nth-child(${index}) h5 a`;
+          const element = await this.page.locator(productSelector);
+          const text = await element.textContent();
+          const productName = text.trim();
+      
+          productList.push(productName);
+        }
+      
+        return productList;
+    }
     
     async clickMoreButton() {
         await this.listView.click();
